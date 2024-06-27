@@ -3,12 +3,12 @@ session_start();
 require_once("./database.php");
 require_once("add.php");
 
-$stmt = $conn->prepare("SELECT * FROM posts ORDER BY id_post DESC LIMIT 1");
+$stmt = $conn->prepare("SELECT * FROM posts ORDER BY id_post DESC 1");
 $stmt->execute();
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 $recent = $post['url_media'];
 $description = $post['description'];
-$location = $post['location'];
+$location = $post['location'];  
 
 if (isset( $_POST["logout"])){
     session_destroy();
